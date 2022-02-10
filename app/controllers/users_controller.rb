@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     def create
         name = params[:name]
         team = params[:team_id].to_i
+        byebug
         @user = User.create({name: name, team: team})
+        byebug
         @user.save
         render json: @user
     end
