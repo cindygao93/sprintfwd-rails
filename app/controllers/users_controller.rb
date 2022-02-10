@@ -1,9 +1,13 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
+    skip_before_action :verify_authenticity_token
 
-    def new(params)
+
+    def create
         name = params[:name]
-        team = User.new(name: name)
-        team.save!
+        team = params[:team_id].to_i
+        @user = User.create({name: name, team: team})
+        @user.save
+        render json: @user
     end
 
     def update
@@ -18,7 +22,7 @@ class UserController < ApplicationController
     end
 
     def index
-        teams = User.find_all
+        teams = User.all
     end
 
     def show
@@ -27,7 +31,7 @@ class UserController < ApplicationController
 
     def update_team(team_id)
         user = User.find(params[:id])
-        user.team = team_id
+        user.team = params[:team_id]
         user.save!
     end
 

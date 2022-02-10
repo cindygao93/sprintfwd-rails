@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :users
+  resources :teams
+  post 'user/update_team/:id', :to => 'user#update_team'
+
 end
