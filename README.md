@@ -5,7 +5,8 @@ This is a takehome assignment from sprintfwd that is listed here: https://gist.g
 
 This assignment presumes the following about Users and Teams
 
-User has only a name and a team_id attribute that can be updated
-Team has only a name that can be updated
+User has only a `name` and a `team_id` attribute that can be updated
+
+Team has only a `name` that can be updated
 
 These assumptions are built into the databases that were created for these Rails models and can be verified in `db/migrate` folder
