@@ -16,27 +16,33 @@ class TeamsController < ApplicationController
     end
 
     def update
-        team = Team.find(params[:id])
-        team.name = params[:name]
-        team.save!
+        @team = Team.find(params[:id])
+        if params[:name]
+            @team.name = params[:name]
+        end
+        @team.save
+        render json: @team
     end
 
     def destroy
-        team = Team.find(params[:id])
-        team.destroy
+        @team = Team.find(params[:id])
+        @team.destroy
+        render json: @team
     end
 
     def index
         teams = Team.all
+        render json: teams
     end
 
     def show
-        Team.find(params[:id])
+        @team = Team.find(params[:id])
+        render json: @team
     end
 
     def get_users
-        team = Team.find(params[:id])
-        team.users
+        @team = Team.find(params[:id])
+        render json: @team.users
     end
 
 end

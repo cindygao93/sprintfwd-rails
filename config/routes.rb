@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users
   resources :teams
-  post 'user/update_team/:id', :to => 'user#update_team'
+
+  get 'teams/:id/get_users', :to => 'teams#get_users'
 
 end
