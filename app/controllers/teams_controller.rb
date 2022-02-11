@@ -1,13 +1,6 @@
 class TeamsController < ApplicationController
     skip_before_action :verify_authenticity_token
 
-
-#Create/Update/Delete/Index/Show teams
-# Create/Update/Delete/Index/Show users
-# A user must belong to a team
-# Update the team of a user
-# Get the users of a specific teamπ
-
     def create
         name = params[:name]
         @team = Team.create(name: name)
